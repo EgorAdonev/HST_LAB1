@@ -20,7 +20,6 @@ int main(int argc, char *argv[]) {
     printf("INFO: Files %s,%s in mode %s successfully opened\n", argv[1], argv[2], "r");
 
 	double startTime = clock();
-    int dataCounter = 0;
 
     int** matrix;
 	matrix = (int**) malloc(3 * sizeof(int*));
@@ -33,6 +32,7 @@ int main(int argc, char *argv[]) {
         resMatrix[i] = (int*) malloc(3 * sizeof(int));
     }
 	char buff[16], numberChar[2];
+	int dataSize = 0;
 	while(1){
 		int dimension = 1;
 		for (int j = 0; j < dimension; j++){
@@ -54,7 +54,6 @@ int main(int argc, char *argv[]) {
 						localDimension ++;
 						number = 0;
 					}
-					dataCounter++;
 					i++;
 				}
 				if (j == 0){
@@ -63,7 +62,7 @@ int main(int argc, char *argv[]) {
 			}
 			else{
 				fprintf(fOut, "Count time: %f ms\n", clock() - startTime);
-				fprintf(fOut, "Size of data: %f Mb\n", ((double) dataCounter) / 1024.0);
+				fprintf(fOut, "Size of data: %f Mb\n", ((double) dataSize) / (1024.0 * 1024.0));
 				fclose(fOut);
 				exit(0);
 			}
@@ -77,6 +76,7 @@ int main(int argc, char *argv[]) {
 				fprintf(fOut, "%d ", resMatrix[i][j]); 
 			}
 			fprintf(fOut, "\n"); 
-		}			
+		}
+			dataSize += dimension*dimension*4
 	}
 }
