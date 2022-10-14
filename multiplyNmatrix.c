@@ -77,6 +77,6 @@ int main(int argc, char *argv[]) {
 			}
 			fprintf(fOut, "\n"); 
 		}
-			dataSize += dimension*dimension*4
+			dataSize += dimension*dimension*4;
 	}
 }
