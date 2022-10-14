@@ -7,7 +7,7 @@
 int main(int argc, char *argv[]) {
 
     if (argc < 3) {
-        printf("Enter size and filename [size] [filename]\n");
+        printf("Enter size (MB) and filename [size] [filename]\n");
         exit(0);
     }
 
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
     printf("file %s successfully opened\n", argv[2]);
 
     int dataSize = atoi(argv[1]);
-	dataSize > 1 ? printf("matrix count more than 1\n") : exit(0);
+	dataSize > 1 ? printf("matrix correct \n") : exit(0);
 	do {
 		int dimensions = rand() % 3 + 1;
         for (int rows = 0; rows < dimensions; rows++){
@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
             }
             fprintf(file,"\n");
 		}
-		dataSize -= dimensions * 4;
+		dataSize -= dimensions * dimensions * 4;
 		if(dataSize<=0) break;
     } while(dataSize>0);
 
