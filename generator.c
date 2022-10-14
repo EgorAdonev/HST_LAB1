@@ -19,10 +19,9 @@ int main(int argc, char *argv[]) {
     }
     printf("file %s successfully opened\n", argv[2]);
 
-    int countMatrix = atoi(argv[1]);
-	countMatrix > 1 ? printf("matrix count more than 1\n") : exit(0);
-	
-    for (int i = 0; i < countMatrix;i++) {
+    int dataSize = atoi(argv[1]);
+	dataSize > 1 ? printf("matrix count more than 1\n") : exit(0);
+	do {
 		int dimensions = rand() % 3 + 1;
         for (int rows = 0; rows < dimensions; rows++){
             for (int columns = 0; columns < dimensions; columns++){
@@ -30,7 +29,9 @@ int main(int argc, char *argv[]) {
             }
             fprintf(file,"\n");
 		}
-    }
+		dataSize -= dimensions * 4;
+		if(dataSize<=0) break;
+    } while(dataSize>0);
 
     fprintf(file, "\n");
     printf("Matrices successfully generated\n");
