@@ -20,7 +20,8 @@ int main(int argc, char *argv[]) {
     printf("file %s successfully opened\n", argv[2]);
 
     int dataSize = atoi(argv[1]);
-	dataSize > 1 ? printf("matrix correct \n") : exit(0);
+	dataSize > 1 ? printf("matrices size correct \n") : exit(0);
+	dataSize = dataSize*1024*1024;
 	do {
 		int dimensions = rand() % 3 + 1;
         for (int rows = 0; rows < dimensions; rows++){
@@ -34,6 +35,6 @@ int main(int argc, char *argv[]) {
     } while(dataSize>0);
 
     fprintf(file, "\n");
-    printf("Matrices successfully generated\n");
+    printf("matrices successfully generated\n");
     fclose(file);
 }
